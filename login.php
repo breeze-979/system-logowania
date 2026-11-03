@@ -1,4 +1,13 @@
 <?php
+session_start();
+if (isset($_POST["login"])) {
+    $login = $_POST["login"];
+    $haslo = $_POST["haslo"];
+    if (login == "admin" && haslo == "TajneHaslo321") {
+        $_SESSION["login"] = $login;
+        header("location: wyniki.php");
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,9 +21,9 @@
     <form method="post">
         <h2>Zaloguj sie do systemu</h2>
         <label>Login</label>
-        <input type="text">
+        <input type="text" name="login">
         <label>Haslo</label>
-        <input type="password">
+        <input type="password" name="haslo">
         <input type="submit" value="Zaloguj">
     </form>
     </main>
